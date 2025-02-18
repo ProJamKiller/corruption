@@ -5,70 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Combined U.S. Presidential & Inner Circle Corruption Scorecard</title>
   <style>
-    /* Overall page style */
+    /* Reset some basic elements */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       background-color: #121212;
       color: #e0e0e0;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
-      margin: 0;
-      padding: 0;
       overflow-x: hidden;
     }
-    /* Header style with background image */
+    /* Responsive header */
     header {
       position: relative;
       width: 100%;
-      height: 300px;
-      background: url('https://bafybeiakt2y3iotv272arl6pswxrcye4cuqpqpouo2i6sx43egxhmuucky.ipfs.dweb.link?filename=DOGCAT.jpeg') no-repeat center center/cover;
+      height: 220px; /* Reduced height for a better view */
+      background: url('https://bafybeiakt2y3iotv272arl6pswxrcye4cuqpqpouo2i6sx43egxhmuucky.ipfs.dweb.link?filename=DOGCAT.jpeg') no-repeat center center;
+      background-size: contain; /* Ensure the whole image is visible */
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: fadeIn 2s ease-out forwards;
+      animation: headerFadeIn 1.5s ease-out forwards;
       opacity: 0;
     }
     header h1 {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px 30px;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 15px 25px;
       border-radius: 8px;
-      font-size: 2.5rem;
-      animation: slideDown 1s ease-out forwards;
+      font-size: 2rem;
+      text-align: center;
+      animation: headerSlideDown 1s ease-out forwards;
       opacity: 0;
     }
-    /* Animations */
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+    @keyframes headerFadeIn {
+      to { opacity: 1; }
     }
-    @keyframes slideDown {
-      from {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+    @keyframes headerSlideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
-    /* Content container */
+    /* Main container */
     .container {
       padding: 20px;
-      animation: fadeIn 1.5s ease-out forwards;
+      max-width: 960px;
+      margin: auto;
+      animation: contentFadeIn 1.5s ease-out forwards;
+      opacity: 0;
     }
-    /* Link styling */
-    a {
-      color: #1e90ff;
-      text-decoration: none;
-      transition: color 0.3s;
+    @keyframes contentFadeIn {
+      to { opacity: 1; }
     }
-    a:hover {
-      color: #ff4500;
-      text-decoration: underline;
-    }
-    /* Header styling */
+    /* Typography */
     h1, h2, h3 {
       color: #f5f5f5;
+      margin-bottom: 10px;
+    }
+    p, li {
+      font-size: 1rem;
+    }
+    ul {
+      margin-left: 20px;
+      margin-bottom: 10px;
     }
     /* Score styling */
     .score {
@@ -80,46 +80,65 @@
       background-color: #1e1e1e;
       border-left: 5px solid #ff4500;
       margin: 20px 0;
-      padding: 10px 20px;
+      padding: 15px 20px;
       font-style: italic;
-      animation: fadeIn 2s ease-out;
+      animation: fadeInBlock 2s ease-out;
     }
-    /* Table of Contents styling */
+    @keyframes fadeInBlock {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Table of Contents */
     .toc a {
       display: block;
-      margin: 5px 0;
-      transition: transform 0.3s;
+      margin: 6px 0;
+      transition: transform 0.3s, color 0.3s;
     }
     .toc a:hover {
       transform: scale(1.05);
+      color: #ff4500;
     }
-    /* Section spacing */
+    /* Section styling */
     .section {
       margin-bottom: 40px;
+      padding: 10px;
+      border-bottom: 1px solid #333;
       opacity: 0;
-      animation: fadeIn 1s ease-out forwards;
+      animation: sectionFadeIn 1s ease-out forwards;
     }
-    .section:nth-of-type(even) {
-      animation-delay: 0.3s;
+    /* Staggering animation delays for sections */
+    .section:nth-of-type(odd) { animation-delay: 0.3s; }
+    .section:nth-of-type(even) { animation-delay: 0.6s; }
+    @keyframes sectionFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .section:nth-of-type(odd) {
-      animation-delay: 0.6s;
-    }
-    /* Back to top link */
+    /* Back-to-top link */
     .back-to-top {
       margin-top: 10px;
-      display: block;
+      display: inline-block;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    .back-to-top:hover {
+      color: #ff4500;
     }
     hr {
       border: 1px solid #333;
-      margin: 20px 0;
+      margin: 30px 0;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      header { height: 180px; }
+      header h1 { font-size: 1.5rem; padding: 10px 20px; }
+      .container { padding: 15px; }
     }
   </style>
 </head>
 <body id="top">
-  <!-- Header with image -->
+  <!-- Header with responsive image -->
   <header>
-    <h1>Combined U.S. Presidential & Inner Circle Corruption Scorecard</h1>
+    <h1>Combined U.S. Presidential &amp; Inner Circle Corruption Scorecard</h1>
   </header>
   
   <div class="container">
@@ -129,7 +148,7 @@
     
     <!-- Part I: Presidential Corruption Scorecard -->
     <h2>Part I: U.S. Presidential Corruption Scorecard (JFK–Biden)</h2>
-  
+    
     <h3>Scoring System</h3>
     <ul>
       <li><strong>1 = Minimal corruption</strong></li>
@@ -138,7 +157,7 @@
       <li><strong>4 = High corruption</strong></li>
       <li><strong>5 = Extreme/Systemic corruption</strong></li>
     </ul>
-  
+    
     <h3>Table of Contents (Presidential)</h3>
     <div class="toc">
       <a href="#john-f-kennedy-1961-1963">John F. Kennedy (1961–1963)</a>
@@ -157,7 +176,7 @@
     
     <hr>
     
-    <!-- Presidential Scorecard Sections -->
+    <!-- Presidential Sections -->
     <div id="john-f-kennedy-1961-1963" class="section">
       <h2>John F. Kennedy (1961–1963)</h2>
       <p><span class="score">Corruption Score:</span> <strong>1 (Minimal)</strong></p>
@@ -430,7 +449,7 @@
       </ul>
       <a class="back-to-top" href="#top">Back to Top</a>
     </div>
-  
+    
   </div>
   
 </body>
